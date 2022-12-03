@@ -6,7 +6,7 @@ const AdminLoginForm = ()=>{
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
-    const loginURL = 'http://localhost:8080/loginAdmin'
+    const loginURL = 'https://joacoservices-com.onrender.com/loginAdmin'
     let navigate = useNavigate();
 
     const handleEmail = (e) => {

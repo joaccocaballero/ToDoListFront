@@ -8,7 +8,7 @@ const AdminManager = ()=>{
     const [users, setUsers] = useState([])
     
     let navigate = useNavigate();
-    const url = 'http://localhost:8080/adminManager/getUsers'
+    const url = 'https://joacoservices-com.onrender.com/adminManager/getUsers'
 
     const logout = () => {
         navigate('/')

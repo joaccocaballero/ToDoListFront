@@ -3,7 +3,7 @@ import { useState } from "react";
 
 
 const Item = ({task, dlt, edt}) => {
-    const url = "http://localhost:8080/tasks/"
+    const url = "https://joacoservices-com.onrender.com/tasks/"
     const [isCompleted, setStatus] = useState(task.status)
 
     const changeStatus = (id) => {
