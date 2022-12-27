@@ -12,7 +12,7 @@ const ToDoList = ()=>{
     let navigate = useNavigate();
 
     const addToList = ((task) => {
-        fetch(url, {
+        fetch(url+'/', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -54,7 +54,7 @@ const ToDoList = ()=>{
     }
 
     const getTasks = async () => {
-        await fetch(url, {
+        await fetch(url+'/', {
             headers: {
                 'Authorization': localStorage.getItem('userToken')
             }

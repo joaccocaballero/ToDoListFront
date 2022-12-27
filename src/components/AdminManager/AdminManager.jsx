@@ -8,7 +8,7 @@ const AdminManager = ()=>{
     const [users, setUsers] = useState([])
     
     let navigate = useNavigate();
-    const url = 'https://joacoservices-com.onrender.com/adminManager/getUsers'
+    const url = 'https://joacoservices-com.onrender.com/auth/adminManager/getUsers'
 
     const logout = () => {
         navigate('/')
@@ -28,7 +28,7 @@ const AdminManager = ()=>{
         })
     }
 
-    const deletionURL = 'http://localhost:8080/adminManager/deletion'
+    const deletionURL = 'https://joacoservices-com.onrender.com/auth/adminManager/deletion'
 
     const deleter = async (id) => {
         await fetch(`${deletionURL}/${id}`, {

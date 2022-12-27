@@ -9,7 +9,7 @@ const Login = ()=>{
     const [password, setPassword] = useState("")
    
 
-    const loginURL = 'https://joacoservices-com.onrender.com/login'
+    const loginURL = 'https://joacoservices-com.onrender.com/auth/login'
     let navigate = useNavigate();
 
     const handleEmail = (e) => {

@@ -8,7 +8,7 @@ const AdminSPForm = ()=>{
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [passConfirmation, setPC] = useState("")
-    const registerURL = 'https://joacoservices-com.onrender.com/registerAdmin'
+    const registerURL = 'https://joacoservices-com.onrender.com/auth/registerAdmin'
 
     let navigate = useNavigate();
 

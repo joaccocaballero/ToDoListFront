@@ -7,7 +7,7 @@ const Item = ({task, dlt, edt}) => {
     const [isCompleted, setStatus] = useState(task.status)
 
     const changeStatus = (id) => {
-        fetch(url+id,{
+        fetch(url+'/'+id,{
             method: 'PATCH'
         })
         setStatus(!isCompleted)
