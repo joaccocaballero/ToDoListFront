@@ -6,7 +6,7 @@ import { useState , useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 
 const ToDoList = ()=>{
-    const url = "http://localhost:8080/tasks"
+    const url = "https://joacoservices-com.onrender.com/tasks"
     const [list, setList] = useState([])
     const [toEdit, setEdit] = useState()
     let navigate = useNavigate();
