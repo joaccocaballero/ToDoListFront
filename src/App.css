@@ -91,7 +91,6 @@ li {
 li>p{
   margin: 0px};
 
-
 li:hover {
   transform: translateY(-10px) scale(1.1);
   box-shadow: 0 10px 5px 0 rgba(90, 95, 101, 0.2);

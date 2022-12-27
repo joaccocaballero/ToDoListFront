@@ -21,7 +21,7 @@ const Form = (props)=>{
            order = 0
            break;
         }
-        props.eventButton(new Task(description, priorityType, new Date(), false, order, localStorage.getItem('userId')))
+        props.eventButton(new Task(description, priorityType, new Date(), false, order))
         setDescription("")
         setPriority("")
     }

@@ -9,7 +9,7 @@ const SignUp = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [passConfirmation, setPC] = useState("")
-    const registerURL = 'https://joacoservices-com.onrender.com/auth/register'
+    const registerURL = 'http://localhost:8080/auth/register'
 
     let navigate = useNavigate();
 
@@ -64,22 +64,22 @@ const SignUp = () => {
             <div className="mb-3 d-flex gap-2">
                 <div className="d-flex flex-column">
                     <label className="form-label">First Name</label>
-                    <input type="text" className="form-control" id="exampleInputEmail1" onInput={handleFN} />
+                    <input type="text" className="form-control"  onInput={handleFN} />
                 </div>
                 <div className="d-flex flex-column">
                     <label className="form-label">Last Name</label>
-                    <input type="text" className="form-control" id="exampleInputEmail1" onInput={handleLN} />
+                    <input type="text" className="form-control"  onInput={handleLN} />
                 </div>
             </div>
             <div className="mb-3">
                 <label className="form-label">Email address</label>
-                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onInput={handleEmail} />
+                <input type="email" className="form-control"  aria-describedby="emailHelp" onInput={handleEmail} />
             </div>
             <div className="mb-3">
                 <label className="form-label">Password</label>
-                <input type="password" className="form-control" id="exampleInputPassword1" onInput={handlePassword} />
+                <input type="password" className="form-control"  onInput={handlePassword} />
                 <label className="form-label">Re-enter your password</label>
-                <input type="password" className="form-control" id="exampleInputPassword1" onInput={handlePC} />
+                <input type="password" className="form-control"  onInput={handlePC} />
             </div>
             <button type="button" className="btn btn-primary" onClick={handleButton}>Submit</button>
         </form>
