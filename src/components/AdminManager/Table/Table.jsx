@@ -8,8 +8,8 @@ const Table = (props)=>{
                 <thead>
                     <tr>
                         <th scope="col"># User Id</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
+                        <th scope="col" className="fn">First Name</th>
+                        <th scope="col" className="ln">Last Name</th>
                         <th scope="col">Email</th>
                         <th scope="col">Actions</th>
                     </tr>

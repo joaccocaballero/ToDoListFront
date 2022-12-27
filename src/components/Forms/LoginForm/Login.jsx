@@ -1,6 +1,7 @@
 import React from "react";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 
@@ -64,6 +65,14 @@ const Login = ()=>{
                 
             </div>
             <button type="submit" className="btn btn-primary" onClick={handleButton}>Log In</button>
+            <div className="buttonSign">
+                <Link to={'/adminForm'}>
+                    <button type="button" className="btn btn-outline-light">Sign in as Admin</button>
+                </Link>
+                <Link to={'/spForm'}>
+                    <button type="button" className="btn btn-outline-light">Sign Up</button>
+                </Link>
+            </div>
         </form>
     )
 }

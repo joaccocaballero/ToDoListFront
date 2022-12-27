@@ -143,6 +143,7 @@ li:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 4%;
 }
 
 .formNav {
@@ -153,7 +154,6 @@ li:hover {
   width: 100%;
   gap: 35%;
   margin-bottom: 2%;
-
 }
 
 .loggedNav{
@@ -161,7 +161,13 @@ li:hover {
   justify-content: space-around;
   margin-top: 2%;
   gap:35%;
+  align-items: center;
   margin-bottom: 2%;
+}
+
+.loggedNav button{
+  margin-right: 3%;
+  max-width: 100%
 }
 
  .userName{
@@ -176,12 +182,18 @@ li:hover {
 }
 
 
-.buttonsNav{
+.buttonSign{
+  flex-direction: column;
+  height: 20vh;
   display: flex;
-  justify-content: flex-end;
-  gap:5%;
-  width: 40%;
+  justify-content: space-around;
+  width: 100%;
 }
+
+.buttonSign button {
+  width: 100%;
+}
+
 
 .tableContainer{
   display: flex;
@@ -189,7 +201,7 @@ li:hover {
   align-items: center;
   border-radius: 15px;
   background-color: #f3f9ff;
-  width: 60%;
+  width: fit-content;
 }
 .adminContainer {
   display: flex;
@@ -232,5 +244,13 @@ tr > td, th{
       width: 100%;
       border-radius: 0px 0px 10px 10px;
     }
-
+    .fn{
+      display: none;
+    }
+    .ln{
+      display: none;
+    }
+    .loggedNav button {
+      width: 100vw;
+    }
   }
