@@ -31,7 +31,9 @@ const Login = ({loaderHandler})=>{
             body: JSON.stringify(user),
         })
         if(response.status!==200){
+            loaderHandler(false)
             alert('Data entered is not valid')
+
         }
         const data = await response.json()
         if (data.token){
