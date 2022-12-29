@@ -3,28 +3,25 @@ import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import { Link } from "react-router-dom";
 
-
-
-const Login = ()=>{
-    const [email, setEmail] = useState("")
+const Login = ({loaderHandler})=>{
+    const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-   
-
     const loginURL = 'https://joacoservices-com.onrender.com/auth/login'
     let navigate = useNavigate();
 
-    const handleEmail = (e) => {
-        setEmail(e.target.value)
+    const handleUsername = (e) => {
+        setUsername(e.target.value)
     }
     const handlePassword = (e) => {
         setPassword(e.target.value)
     }
 
-    const login = async (email, password) => {
+    const login = async (username, password) => {
         let user = {
-            email: email,
+            username: username,
             password: password,
         }
+        loaderHandler(true)
         const response = await fetch(loginURL, {
             method: 'POST',
             headers: {
@@ -33,31 +30,30 @@ const Login = ()=>{
             },
             body: JSON.stringify(user),
         })
-        
         if(response.status!==200){
             alert('Data entered is not valid')
         }
         const data = await response.json()
         if (data.token){
-            const names = 'Welcome ' + data.names.firstName + ' ' + data.names.lastName + '!'
+            loaderHandler(false)
+            console.log(data)
+            const names = 'Welcome ' + data.username + '!'
             localStorage.setItem('userToken',data.token)
             localStorage.setItem('userNames', names)
             navigate("/personalList")             
         }
     }
-
     const handleButton = ()=>{
-        if (email !== "" && password !== ""){
-            login(email, password)
+        if (username !== "" && password !== ""){
+            login(username, password)
         }
     }
-    
     return(
         <form className="loginform d-flex flex-column justify-content-center" onSubmit={(e)=>e.preventDefault()}>
             <div className="mb-3">
-                <label className="form-label">Email address</label>
-                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onInput={handleEmail} required/>
-                    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                <label className="form-label">Username</label>
+                <input type="username" className="form-control" id="exampleInputUsername1" aria-describedby="usernameHelp" onInput={handleUsername} required/>
+                    <div id="usernameHelp" className="form-text"></div>
             </div>
             <div className="mb-3">
                 <label className="form-label">Password</label>

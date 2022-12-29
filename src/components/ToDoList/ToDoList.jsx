@@ -5,7 +5,7 @@ import List from "./List/List"
 import { useState , useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 
-const ToDoList = ()=>{
+const ToDoList = ({loaderHandler})=>{
     const url = "https://joacoservices-com.onrender.com/tasks"
     const [list, setList] = useState([])
     const [toEdit, setEdit] = useState()
@@ -21,9 +21,9 @@ const ToDoList = ()=>{
             },
             body: JSON.stringify(task),
         })
-            .then((data) => {
-                getTasks()
-            })
+        .then((data) => {
+            getTasks()
+        })
     })
 
     const deleteItem = async (id) => {
@@ -60,7 +60,7 @@ const ToDoList = ()=>{
             }
         })
         .then(response => response.json())
-        .then(data => {    
+        .then(data => {
             setList(data)
         })
     }

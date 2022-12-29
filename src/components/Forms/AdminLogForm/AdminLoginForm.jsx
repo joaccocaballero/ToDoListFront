@@ -3,23 +3,23 @@ import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 
 const AdminLoginForm = ()=>{
-    const [email, setEmail] = useState("")
+    const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
     const loginURL = 'https://joacoservices-com.onrender.com/auth/loginAdmin'
     let navigate = useNavigate();
 
-    const handleEmail = (e) => {
-        setEmail(e.target.value)
+    const handleUsername = (e) => {
+        setUsername(e.target.value)
     }
     const handlePassword = (e) => {
         setPassword(e.target.value)
     }
 
-    const login = async (email, password) => {
+    const login = async (username, password) => {
         let user = {
-            email: email,
-            password: password,
+            username: username,
+            password: password
         }
         const response = await fetch(loginURL, {
             method: 'POST',
@@ -40,8 +40,8 @@ const AdminLoginForm = ()=>{
     }
 
     const handleButton = () => {
-        if (email !== "" && password !== "") {
-            login(email, password)
+        if (username !== "" && password !== "") {
+            login(username, password)
         }
     }
 
@@ -49,8 +49,8 @@ const AdminLoginForm = ()=>{
         <form className="loginform d-flex flex-column justify-content-center" onSubmit={(e) => e.preventDefault()}>
             <h2>Administrator</h2>
             <div className="mb-3 mt-3">
-                <label className="form-label">Email address</label>
-                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onInput={handleEmail} required />
+                <label className="form-label">Username</label>
+                <input type="username" className="form-control" id="exampleInputUsername1" aria-describedby="usernameHelp" onInput={handleUsername} required />
             </div>
             <div className="mb-3">
                 <label className="form-label">Password</label>
@@ -60,6 +60,5 @@ const AdminLoginForm = ()=>{
         </form>
     )
 }
-
 
 export default AdminLoginForm;

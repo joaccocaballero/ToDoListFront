@@ -4,23 +4,15 @@ import {useNavigate} from "react-router-dom";
 
 
 const SignUp = () => {
-    const [firstName, setFN] = useState("")
-    const [lastName, setLN] = useState("")
-    const [email, setEmail] = useState("")
+    const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [passConfirmation, setPC] = useState("")
     const registerURL = 'https://joacoservices-com.onrender.com/auth/register'
 
     let navigate = useNavigate();
 
-    const handleFN = (e) => {
-        setFN(e.target.value)
-    }
-    const handleLN = (e) => {
-        setLN(e.target.value)
-    }
-    const handleEmail = (e) => {
-        setEmail(e.target.value)
+    const handleUsername = (e) => {
+        setUsername(e.target.value)
     }
     const handlePassword = (e) => {
         setPassword(e.target.value)
@@ -30,12 +22,10 @@ const SignUp = () => {
     }
 
 
-    const register = (firstName, lastName ,email, password) => {
+    const register = (username, password) => {
         let newUser = {
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            password: password,
+            username: username,
+            password: password
         }
         fetch(registerURL, {
             method: 'POST',
@@ -49,7 +39,7 @@ const SignUp = () => {
 
     const handleButton = () => {
         if (password === passConfirmation) {
-            register(firstName, lastName, email, password)
+            register(username, password)
             navigate("/")  
 
         }
@@ -61,19 +51,9 @@ const SignUp = () => {
     return (
         <form className="loginform d-flex flex-column justify-content-center" onSubmit={(e) => e.preventDefault()}>
             <h2>Sign Up</h2>
-            <div className="mb-3 d-flex gap-2">
-                <div className="d-flex flex-column">
-                    <label className="form-label">First Name</label>
-                    <input type="text" className="form-control"  onInput={handleFN} />
-                </div>
-                <div className="d-flex flex-column">
-                    <label className="form-label">Last Name</label>
-                    <input type="text" className="form-control"  onInput={handleLN} />
-                </div>
-            </div>
             <div className="mb-3">
-                <label className="form-label">Email address</label>
-                <input type="email" className="form-control"  aria-describedby="emailHelp" onInput={handleEmail} />
+                <label className="form-label">Username</label>
+                <input type="email" className="form-control"  aria-describedby="emailHelp" onInput={handleUsername} />
             </div>
             <div className="mb-3">
                 <label className="form-label">Password</label>
