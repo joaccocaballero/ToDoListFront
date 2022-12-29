@@ -12,9 +12,7 @@ const LoginPage = ({loaderHandler})=>{
             </div>
            
             <div className='formContainer'>
-                <Login loaderHandler={loaderHandler}
-                        
-                />
+                <Login loaderHandler={loaderHandler}/>
             </div>
         </div>  
     )

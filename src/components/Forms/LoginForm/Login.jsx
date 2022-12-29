@@ -3,10 +3,10 @@ import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import { Link } from "react-router-dom";
 
+
 const Login = ({loaderHandler})=>{
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const loginURL = 'https://joacoservices-com.onrender.com/auth/login'
     let navigate = useNavigate();
 
     const handleUsername = (e) => {
@@ -22,7 +22,7 @@ const Login = ({loaderHandler})=>{
             password: password,
         }
         loaderHandler(true)
-        const response = await fetch(loginURL, {
+        const response = await fetch(process.env.REACT_APP_API_URL +'/auth/login', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -36,8 +36,7 @@ const Login = ({loaderHandler})=>{
         const data = await response.json()
         if (data.token){
             loaderHandler(false)
-            console.log(data)
-            const names = 'Welcome ' + data.username + '!'
+            const names = 'Welcome ' + data.names.username + '!'
             localStorage.setItem('userToken',data.token)
             localStorage.setItem('userNames', names)
             navigate("/personalList")             

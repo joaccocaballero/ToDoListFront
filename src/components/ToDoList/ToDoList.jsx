@@ -5,14 +5,13 @@ import List from "./List/List"
 import { useState , useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 
-const ToDoList = ({loaderHandler})=>{
-    const url = "https://joacoservices-com.onrender.com/tasks"
+const ToDoList = ()=>{
     const [list, setList] = useState([])
     const [toEdit, setEdit] = useState()
     let navigate = useNavigate();
 
     const addToList = ((task) => {
-        fetch(url+'/', {
+        fetch(process.env.REACT_APP_API_URL+'/tasks', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -27,7 +26,7 @@ const ToDoList = ({loaderHandler})=>{
     })
 
     const deleteItem = async (id) => {
-        await fetch(`${url}/${id}/`, {
+        await fetch(process.env.REACT_APP_API_URL+`/tasks/${id}/`, {
             method: 'DELETE',
             headers: {
                 'Authorization': localStorage.getItem('userToken')
@@ -54,7 +53,7 @@ const ToDoList = ({loaderHandler})=>{
     }
 
     const getTasks = async () => {
-        await fetch(url, {
+        await fetch(process.env.REACT_APP_API_URL+'/tasks', {
             headers: {
                 'Authorization': localStorage.getItem('userToken')
             }

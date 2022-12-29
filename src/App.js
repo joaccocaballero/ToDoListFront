@@ -13,7 +13,6 @@ function App() {
   const [isLoading, setLoader] = useState(false)  
   return (
     <>
-   
       <BrowserRouter>
         {
           (isLoading) ? <Loading/> :

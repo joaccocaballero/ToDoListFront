@@ -6,9 +6,7 @@ import {useState} from "react";
 
 const AdminManager = ()=>{
     const [users, setUsers] = useState([])
-    
     let navigate = useNavigate();
-    const url = 'https://joacoservices-com.onrender.com/auth/adminManager/getUsers'
 
     const logout = () => {
         navigate('/')
@@ -16,7 +14,7 @@ const AdminManager = ()=>{
     }
 
     const getUsers = async ()=>{
-        await fetch(url, {
+        await fetch(process.env.REACT_APP_API_URL+'/auth/adminManager/getUsers', {
             headers: {
                 'Authorization': localStorage.getItem('adminToken')
             }
@@ -28,10 +26,8 @@ const AdminManager = ()=>{
         })
     }
 
-    const deletionURL = 'https://joacoservices-com.onrender.com/auth/adminManager/deletion'
-
     const deleter = async (id) => {
-        await fetch(`${deletionURL}/${id}`, {
+        await fetch(process.env.REACT_APP_API_URL +`/auth/adminManager/deletion/${id}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': localStorage.getItem('userToken')

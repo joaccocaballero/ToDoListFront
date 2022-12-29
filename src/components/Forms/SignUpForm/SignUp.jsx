@@ -7,7 +7,6 @@ const SignUp = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [passConfirmation, setPC] = useState("")
-    const registerURL = 'https://joacoservices-com.onrender.com/auth/register'
 
     let navigate = useNavigate();
 
@@ -27,7 +26,7 @@ const SignUp = () => {
             username: username,
             password: password
         }
-        fetch(registerURL, {
+        fetch(process.env.REACT_APP_API_URL+'/auth/register', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

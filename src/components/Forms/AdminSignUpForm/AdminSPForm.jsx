@@ -6,7 +6,6 @@ const AdminSPForm = ()=>{
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [passConfirmation, setPC] = useState("")
-    const registerURL = 'https://joacoservices-com.onrender.com/auth/registerAdmin'
 
     let navigate = useNavigate();
 
@@ -26,7 +25,7 @@ const AdminSPForm = ()=>{
             username: username,
             password: password
         }
-        fetch(registerURL, {
+        fetch(process.env.REACT_APP_API_URL+'/auth/registerAdmin', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

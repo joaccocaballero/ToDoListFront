@@ -5,8 +5,6 @@ import {useNavigate} from "react-router-dom";
 const AdminLoginForm = ()=>{
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-
-    const loginURL = 'https://joacoservices-com.onrender.com/auth/loginAdmin'
     let navigate = useNavigate();
 
     const handleUsername = (e) => {
@@ -21,7 +19,7 @@ const AdminLoginForm = ()=>{
             username: username,
             password: password
         }
-        const response = await fetch(loginURL, {
+        const response = await fetch(process.env.REACT_APP_API_URL+'/auth/loginAdmin', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

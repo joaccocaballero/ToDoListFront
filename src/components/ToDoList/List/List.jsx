@@ -9,7 +9,6 @@ const List= (props)=>{
                     props.renderList.sort((a, b) => {
                         return b.order-a.order;
                     }).map((task) => {
-                        console.log(task)
                     return(
                         <Item task={task} key={task.id} dlt={props.deleteTask} edt={props.editTask} list={props.renderList}/>
                     )
