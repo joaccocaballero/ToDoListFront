@@ -17,12 +17,12 @@ function App() {
         {
           (isLoading) ? <Loading/> :
         <Routes>
-          <Route path={"/"} element={<LoginPage loaderHandler={setLoader}/>} />
-          <Route path={"/personalList"} element={<ToDoList/>} />
-          <Route path={"/spForm"} element={<SignUpPage/>} />
-          <Route path={"/adminForm"} element={<AdminLoginPage />} />
-          <Route path={"/adminManager"} element={<AdminManager />} />
-          <Route path={"/adminSignUp"} element={<AdminSignUpPage />} />
+          <Route path={"/"} element={<LoginPage loaderHandler={setLoader}/>}/>
+          <Route path={"/personalList"} element={<ToDoList/>}/>
+              <Route path={"/spForm"} element={<SignUpPage loaderHandler={setLoader} />}/>
+              <Route path={"/adminForm"} element={<AdminLoginPage loaderHandler={setLoader}/>}/>
+              <Route path={"/adminManager"} element={<AdminManager loaderHandler={setLoader}/>} />
+              <Route path={"/adminSignUp"} element={<AdminSignUpPage loaderHandler={setLoader}/>} />
         </Routes>
         }
       </BrowserRouter>

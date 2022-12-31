@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 import Swal from "sweetalert2";
 
 
-const SignUp = () => {
+const SignUp = ({loaderHandler}) => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [passConfirmation, setPC] = useState("")
@@ -27,6 +27,7 @@ const SignUp = () => {
             username: username,
             password: password
         }
+        loaderHandler(true)
         fetch(process.env.REACT_APP_API_URL+'/auth/register', {
             method: 'POST',
             headers: {
@@ -37,6 +38,7 @@ const SignUp = () => {
         })
         .then((data) => {
             if (data.status !== 400) {
+                loaderHandler(false)
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
@@ -47,6 +49,7 @@ const SignUp = () => {
                 navigate("/")
             }
             else {
+                loaderHandler(false)
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',

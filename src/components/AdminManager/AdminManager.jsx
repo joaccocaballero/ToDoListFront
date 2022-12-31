@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import {useState} from "react";
 
-const AdminManager = ()=>{
+const AdminManager = ({loaderHandler})=>{
     const [users, setUsers] = useState([])
     let navigate = useNavigate();
 
@@ -26,12 +26,16 @@ const AdminManager = ()=>{
     }
 
     const deleter = async (id) => {
+        loaderHandler(true)
         await fetch(process.env.REACT_APP_API_URL +`/auth/adminManager/deletion/${id}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': localStorage.getItem('userToken')
             }
-        }).then((data) => data.json())
+        }).then((data) => {
+            loaderHandler(false)
+            data.json()
+        })
         getUsers();
     }
 

@@ -3,7 +3,7 @@ import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import Swal from "sweetalert2";
 
-const AdminLoginForm = ()=>{
+const AdminLoginForm = ({loaderHandler})=>{
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     let navigate = useNavigate();
@@ -20,6 +20,7 @@ const AdminLoginForm = ()=>{
             username: username,
             password: password
         }
+        loaderHandler(true)
         const response = await fetch(process.env.REACT_APP_API_URL+'/auth/loginAdmin', {
             method: 'POST',
             headers: {
@@ -29,6 +30,7 @@ const AdminLoginForm = ()=>{
             body: JSON.stringify(user),
         })
         if (response.status !== 200) {
+            loaderHandler(false)
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -37,6 +39,7 @@ const AdminLoginForm = ()=>{
         }
         const data = await response.json()
         if (data.token) {
+            loaderHandler(false)
             localStorage.setItem('adminToken', data.token)
             navigate("/adminManager")
         }

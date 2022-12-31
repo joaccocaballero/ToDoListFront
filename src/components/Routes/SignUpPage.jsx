@@ -2,7 +2,7 @@ import React from "react";
 import SignUp from "../Forms/SignUpForm/SignUp";
 import { Link } from "react-router-dom";
 
-const SignUpPage = ()=>{
+const SignUpPage = ({loaderHandler})=>{
     return(
         <div className='mainContainer'>
             <nav className='mt-4 justify-content-end d-flex'>
@@ -11,7 +11,7 @@ const SignUpPage = ()=>{
                 </div>
             </nav>                
             <div className='formContainer'>
-                <SignUp/>
+                <SignUp loaderHandler={loaderHandler} />
             </div>
         </div>
     )

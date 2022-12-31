@@ -3,7 +3,7 @@ import AdminSPForm from "../Forms/AdminSignUpForm/AdminSPForm";
 import { Link } from "react-router-dom";
 
 
-const AdminSignUpPage = ()=>{
+const AdminSignUpPage = ({loaderHandler})=>{
     return(
         <>
             <div className='mainContainer'>
@@ -16,7 +16,7 @@ const AdminSignUpPage = ()=>{
                     </div>
                 </nav>
                 <div className='formContainer'>
-                    <AdminSPForm />
+                    <AdminSPForm loaderHandler={loaderHandler} />
                 </div>
             </div>
 

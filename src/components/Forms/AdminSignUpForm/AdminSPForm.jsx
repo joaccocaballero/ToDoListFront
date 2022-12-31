@@ -3,7 +3,7 @@ import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import Swal from "sweetalert2";
 
-const AdminSPForm = ()=>{
+const AdminSPForm = ({loaderHandler})=>{
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [passConfirmation, setPC] = useState("")
@@ -26,6 +26,7 @@ const AdminSPForm = ()=>{
             username: username,
             password: password
         }
+        loaderHandler(true)
         fetch(process.env.REACT_APP_API_URL+'/auth/registerAdmin', {
             method: 'POST',
             headers: {
@@ -36,6 +37,7 @@ const AdminSPForm = ()=>{
         })
         .then((data)=>{
             if(data.status !== 400){
+                loaderHandler(false)
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
@@ -46,6 +48,7 @@ const AdminSPForm = ()=>{
                 navigate("/adminForm")
             }
             else{
+                loaderHandler(false)
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
@@ -61,7 +64,11 @@ const AdminSPForm = ()=>{
            
         }
         else {
-            alert('Your passwords do not match.')
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Your passwords do not match!',
+            })
         }
     }
 

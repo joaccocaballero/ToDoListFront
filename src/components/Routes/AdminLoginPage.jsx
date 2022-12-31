@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import AdminLoginForm from "../Forms/AdminLogForm/AdminLoginForm";
 
-const AdminLoginPage = ()=>{
+const AdminLoginPage = ({loaderHandler})=>{
     return(
         <div className="mainContainer">
             <nav className='mt-4 justify-content-end d-flex'>
@@ -15,7 +15,7 @@ const AdminLoginPage = ()=>{
             </nav>    
 
             <div className="formContainer">
-                <AdminLoginForm/>
+                <AdminLoginForm loaderHandler={loaderHandler}/>
             </div>
         </div>
     )
