@@ -59,7 +59,6 @@ const ToDoList = ({loaderHandler})=>{
     }
 
     const getTasks = async () => {
-        loaderHandler(true)
         await fetch(process.env.REACT_APP_API_URL+'/tasks', {
             headers: {
                 'Authorization': localStorage.getItem('userToken')
@@ -68,7 +67,6 @@ const ToDoList = ({loaderHandler})=>{
         .then(response => response.json())
         .then(data => {
             setList(data)
-            loaderHandler(false)
         })
     }
 
