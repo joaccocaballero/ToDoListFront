@@ -22,8 +22,8 @@ const ToDoList = ({loaderHandler})=>{
             body: JSON.stringify(task),
         })
         .then((data) => {
-            loaderHandler(false)
             getTasks()
+            loaderHandler(false)
         })
     })
 
