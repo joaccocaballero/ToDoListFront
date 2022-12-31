@@ -18,7 +18,7 @@ function App() {
           (isLoading) ? <Loading/> :
         <Routes>
           <Route path={"/"} element={<LoginPage loaderHandler={setLoader}/>}/>
-          <Route path={"/personalList"} element={<ToDoList/>}/>
+              <Route path={"/personalList"} element={<ToDoList loaderHandler={setLoader}/>}/>
               <Route path={"/spForm"} element={<SignUpPage loaderHandler={setLoader} />}/>
               <Route path={"/adminForm"} element={<AdminLoginPage loaderHandler={setLoader}/>}/>
               <Route path={"/adminManager"} element={<AdminManager loaderHandler={setLoader}/>} />
