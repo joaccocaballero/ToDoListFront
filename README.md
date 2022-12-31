@@ -8,7 +8,7 @@ tasks at the bottom. Besides, it permits the user to keep track of their complet
 
 ## How to run this project locally
 This is a React based app. A .env.example.txt file is provided in order to set the API_URL (http://localhost:8080/).
-Once done, rename that file to .env and run:
+Once done, rename that file to '.env' and run:
 
 ```
 npm install
