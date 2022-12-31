@@ -1,6 +1,7 @@
 import React from "react";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AdminLoginForm = ()=>{
     const [username, setUsername] = useState("")
@@ -28,7 +29,11 @@ const AdminLoginForm = ()=>{
             body: JSON.stringify(user),
         })
         if (response.status !== 200) {
-            alert('Data entered is not valid')
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Data entered is not valid!',
+            })
         }
         const data = await response.json()
         if (data.token) {

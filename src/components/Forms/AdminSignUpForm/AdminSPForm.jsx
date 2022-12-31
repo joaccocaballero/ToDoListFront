@@ -1,6 +1,7 @@
 import React from "react";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AdminSPForm = ()=>{
     const [username, setUsername] = useState("")
@@ -33,12 +34,31 @@ const AdminSPForm = ()=>{
             },
             body: JSON.stringify(newUser),
         })
-    }
+        .then((data)=>{
+            if(data.status !== 400){
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'User created successfully!',
+                    showConfirmButton: false,
+                    timer: 1200
+                })
+                navigate("/adminForm")
+            }
+            else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Username chosen is already in use, please try a different one!',
+                })
+            }
+        })
+}
 
     const handleButton = () => {
         if (password === passConfirmation) {
             register(username, password)
-            navigate("/adminForm")
+           
         }
         else {
             alert('Your passwords do not match.')

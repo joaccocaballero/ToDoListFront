@@ -2,7 +2,7 @@ import React from "react";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import { Link } from "react-router-dom";
-
+import Swal from "sweetalert2";
 
 const Login = ({loaderHandler})=>{
     const [username, setUsername] = useState("")
@@ -32,8 +32,11 @@ const Login = ({loaderHandler})=>{
         })
         if(response.status!==200){
             loaderHandler(false)
-            alert('Data entered is not valid')
-
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Data entered is not valid!',
+            })
         }
         const data = await response.json()
         if (data.token){

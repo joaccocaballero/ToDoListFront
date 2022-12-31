@@ -16,7 +16,7 @@ const Table = (props)=>{
                     {
                         props.usersList.map((item, key) => {
                             return (
-                                <Row key={key} id={item.id} fn={item.firstName} ln={item.lastName} email={item.email} deleter={props.deleter}/>
+                                <Row key={key} id={item.id} username={item.username} deleter={props.deleter}/>
                             )
                         })
                     }

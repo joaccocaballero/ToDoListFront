@@ -21,7 +21,6 @@ const AdminManager = ()=>{
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             setUsers(data)
         })
     }
