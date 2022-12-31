@@ -23,7 +23,6 @@ const ToDoList = ({loaderHandler})=>{
         })
         .then((data) => {
             getTasks()
-            loaderHandler(false)
         })
     })
 
@@ -35,7 +34,6 @@ const ToDoList = ({loaderHandler})=>{
                 'Authorization': localStorage.getItem('userToken')
             }
         }).then((data) => {
-            loaderHandler(false)
             data.json()
         })
         getTasks();
@@ -67,6 +65,7 @@ const ToDoList = ({loaderHandler})=>{
         .then(response => response.json())
         .then(data => {
             setList(data)
+            loaderHandler(false)
         })
     }
 
