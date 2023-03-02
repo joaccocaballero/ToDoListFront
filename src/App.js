@@ -22,7 +22,7 @@ function App() {
               <Route path={"/spForm"} element={<SignUpPage loaderHandler={setLoader} />}/>
               <Route path={"/adminForm"} element={<AdminLoginPage loaderHandler={setLoader}/>}/>
               <Route path={"/adminManager"} element={<AdminManager loaderHandler={setLoader}/>} />
-              <Route path={"/adminSiddgnUp"} element={<AdminSignUpPage loaderHandler={setLoader}/>} />
+              <Route path={"/adminSignUp"} element={<AdminSignUpPage loaderHandler={setLoader}/>} />
         </Routes>
         }
       </BrowserRouter>
